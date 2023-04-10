@@ -7,6 +7,7 @@
             private FootballTeam $owner,
             private FootballTeam $guest,
             private $circle,
+            private $tour,
         )
         {}
 
@@ -23,5 +24,10 @@
         public function getCircle()
         {
             return $this->circle;
+        }
+
+        public function getTour()
+        {
+            return $this->tour;
         }
     }

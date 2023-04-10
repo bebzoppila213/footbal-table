@@ -5,6 +5,16 @@ $app = new App('./app/data.json');
 $app->loadDataFromFile();
 $footbalService = $app->getFootballMatchService();
 $tourIndex = 0;
+
+
+// print_r("<pre>");
+// print_r($footbalService->getMatchesByParams(1, 1));
+// print_r("</pre>");
+
+// print_r("<pre>");
+// print_r(count($footbalService->getMatchesByParams(1, 1)));
+// print_r("</pre>");
+// die();
 ?>
 
 <!DOCTYPE html>
@@ -20,7 +30,7 @@ $tourIndex = 0;
 
 <body>
     <div class="wrapper">
-        <?php for ($i = 1; $i <= 2; $i++) : ?>
+        <?php for ($circle = 1; $circle <= 2; $circle++) : ?>
             <div class="table-wrapper">
                 <h3 class="table-title">Круг <?= $i ?></h3>
                 <table class="table">
@@ -31,7 +41,7 @@ $tourIndex = 0;
                         </tr>
                     </thead>
                     <tbody>
-                        <?php foreach ($footbalService->getMatchesByCircle($i) as $v) : ?>
+                        <?php foreach ($footbalService->getMatchesByCircle($circle) as $v) : ?>
                             <?php
                                 $owner = $v->getOwner();
                                 $quest = $v->getQuest();
